@@ -1,13 +1,13 @@
 
 public class secondPart1 {
     public static void main(String[] args) {
-        int[] intArray = {3, 18, 54, 93, 27, 125, 37, 243, 81};
+        int[] intArray = {10, 10, 1, 2, 3, 4, 5, 6, 7, 8};
         double[] doubleArray = {19.18, 11.53, 17.69, 19.71, 128.53, 211.69, 54.27, 69.73, 274.21, 513.23};
         System.out.println("Sum of arrays: int " + sum(intArray) + ", double " + sum(doubleArray));
         System.out.println("Min of arrays: int " + min(intArray) + ", double " + min(doubleArray));
         System.out.println("Max of arrays: int " + max(intArray) + ", double " + max(doubleArray));
         System.out.println("MaxPositive of arrays: int " + maxPositive(intArray) + ", double " + maxPositive(doubleArray));
-        System.out.println("Multuplication of arrays: int " + multiplication(intArray) + ", double " + multiplication(doubleArray));
+        System.out.println("Multiplication of arrays: int " + multiplication(intArray) + ", double " + multiplication(doubleArray));
         System.out.println("Modulus of arrays: int " + modulus(intArray) + ", double " + modulus(doubleArray));
         System.out.println("SecondLargest of arrays: int " + secondLargest(intArray) + ", double " + secondLargest(doubleArray));
     }
@@ -71,12 +71,18 @@ public class secondPart1 {
     }
 
     static private int secondLargest(int[] array) {
-
+        int m = 0;
         int k = max(array);
 
         int secondLargest = array[0];
 
-        for (int i = 1; i < array.length; i++) if (secondLargest < array[i] && array[i] < k) secondLargest = array[i];
+        for (int anArray : array)
+            if (anArray > m) {
+                secondLargest = m;
+                m = anArray;
+            } else if (anArray > secondLargest & anArray != k)
+                secondLargest = anArray;
+
 
         return secondLargest;
 
@@ -145,14 +151,19 @@ public class secondPart1 {
     }
 
     static private double secondLargest(double[] array) {
-
-        double x = max(array);
+        double m = 0;
+        double k = max(array);
 
         double secondLargest = array[0];
 
-        for (short i = 1; i < array.length; i++) if (secondLargest < array[i] && array[i] < x) secondLargest = array[i];
+        for (double anArray : array)
+            if (anArray > m) {
+                secondLargest = m;
+                m = anArray;
+            } else if (anArray > secondLargest & anArray != k)
+                secondLargest = anArray;
+
 
         return secondLargest;
-
     }
 }
