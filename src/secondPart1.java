@@ -150,7 +150,7 @@ public class secondPart1 {
 
         double secondLargest = array[0];
 
-        for (short i = 1; i < array.length;i++) if (secondLargest < array[i] && array[i] < x) secondLargest = array[i];
+        for (short i = 1; i < array.length; i++) if (secondLargest < array[i] && array[i] < x) secondLargest = array[i];
 
         return secondLargest;
 
